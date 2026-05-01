@@ -1,3 +1,4 @@
+
 .topbar {
   background: #0b5ed7;
   color: white;
@@ -28,6 +29,7 @@
   padding: 10px 15px;
   border-radius: 5px;
 }
+
 .hero {
   height: 400px;
   background-image: url("https://images.unsplash.com/photo-1509395176047-4a66953fd231");
