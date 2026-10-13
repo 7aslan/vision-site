@@ -5,44 +5,44 @@ const servicesData = [
   {
     id: 'endustriyel-otomasyon',
     title: 'Endüstriyel Otomasyon',
-    description: 'PLC, SCADA ve fabrika otomasyon sistemleri ile üretim hatlarınızda maksimum verimlilik ve kontrol.',
-    image: 'image_agent_tag_6009994608536901501',
-    icon: '⚙️'
+    shortDesc: 'PLC, SCADA ve fabrika otomasyon sistemleri ile üretim hatlarınızda maksimum verimlilik.',
+    detailDesc: 'Üretim süreçlerinizi dijitalleştiriyor; PLC, SCADA ve robotik sistem entegrasyonlarıyla hat duruş sürelerini minimuma indirip operasyonel verimliliği artırıyoruz.',
+    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800'
   },
   {
     id: 'gunes-enerji-sistemleri',
     title: 'Güneş Enerji Sistemleri (GES)',
-    description: 'Çatı ve arazi GES projelerinde anahtar teslim mühendislik, fizibilite ve kurulum çözümleri.',
-    image: 'image_agent_tag_6009994608536902414',
-    icon: '☀️'
+    shortDesc: 'Çatı ve arazi GES projelerinde anahtar teslim mühendislik ve kurulum çözümleri.',
+    detailDesc: 'Endüstriyel tesisleriniz ve işletmeleriniz için yüksek verimli fotovoltaik güneş enerjisi sistemleri tasarlıyor, fizibilite ve anahtar teslim kurulum yapıyoruz.',
+    image: 'https://images.unsplash.com/photo-1509391365360-804d21f7c32e?auto=format&fit=crop&q=80&w=800'
   },
   {
     id: 'ag-og-elektrik-projeleri',
     title: 'AG-OG Elektrik Projeleri',
-    description: 'Alçak ve orta gerilim dağıtım sistemleri, trafo merkezleri ve enerji nakil hatları tasarımı.',
-    image: 'image_agent_tag_6009994608536903327',
-    icon: '⚡'
+    shortDesc: 'Alçak ve orta gerilim dağıtım sistemleri, trafo merkezleri ve enerji nakil hatları.',
+    detailDesc: 'Tesislerinizin enerji altyapısını ulusal ve uluslararası standartlara uygun tasarlıyor; AG-OG dağıtım panoları, trafo ve şalt merkezleri projelerini hayata geçiriyoruz.',
+    image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80&w=800'
   },
   {
     id: 'proje-yonetimi',
     title: 'Proje Yönetimi & Danışmanlık',
-    description: 'Mühendislik projelerinizde süreç optimizasyonu, maliyet yönetimi ve teknik müşavirlik.',
-    image: 'https://images.unsplash.com/photo-1541888946425-d0fbb18f7645?auto=format&fit=crop&q=80&w=800',
-    icon: '📊'
+    shortDesc: 'Mühendislik projelerinizde süreç optimizasyonu ve maliyet yönetimi.',
+    detailDesc: 'Karmaşık mühendislik projelerini bütçe, zaman ve kalite kısıtları içerisinde başarıyla yönetiyor; teknik müşavirlik ve kapsamlı risk analizi hizmetleri sunuyoruz.',
+    image: 'https://images.unsplash.com/photo-1541888946425-d0fbb18f7645?auto=format&fit=crop&q=80&w=800'
   },
   {
     id: 'bina-elektrik-tesisati',
     title: 'Bina Elektrik Tesisatı',
-    description: 'Endüstriyel ve ticari binalar için akıllı bina, aydınlık, zayıf akım ve anahtar teslim elektrik tesisatları.',
-    image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=800',
-    icon: '🏢'
+    shortDesc: 'Ticari ve endüstriyel binalar için akıllı bina ve aydınlatma sistemleri.',
+    detailDesc: 'Modern yapılar ve endüstriyel binalar için güçlü zayıf akım, aydınlatma otomasyonu, yangın ihbar ve komple anahtar teslim bina elektrik tesisat çözümleri.',
+    image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=800'
   },
   {
     id: 'kablaj-muhendisligi',
     title: 'Kablaj Mühendisliği',
-    description: 'Özel endüstriyel panolar, kablo rotalama optimizasyonu, harness tasarımı ve elektromanyetik uyumluluk.',
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800',
-    icon: '🔌'
+    shortDesc: 'Özel endüstriyel panolar ve kablo rotalama optimizasyonu.',
+    detailDesc: 'Endüstriyel makineler ve kontrol panoları için yüksek kaliteli kablaj, harness tasarımı, elektromanyetik uyumluluk (EMC) ve düzenli kablo rotalama mühendisliği.',
+    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800'
   }
 ];
 
@@ -70,41 +70,44 @@ export default function Services() {
             <Link 
               key={service.id}
               to={`/hizmetler/${service.id}`}
-              className="group relative bg-white dark:bg-slate-950 rounded-2xl p-6 shadow-md hover:shadow-2xl border border-slate-200 dark:border-slate-800 transition-all duration-300 flex flex-col justify-between overflow-hidden"
+              className="group relative bg-white dark:bg-slate-950 rounded-2xl shadow-md hover:shadow-2xl border border-slate-200 dark:border-slate-800 transition-all duration-300 flex flex-col overflow-hidden"
             >
-              {/* Background Glow Effect on Hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+              {/* Image Container strictly bounded inside card */}
+              <div className="relative h-48 w-full overflow-hidden bg-slate-100 dark:bg-slate-900">
+                <img 
+                  src={service.image} 
+                  alt={service.title} 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-50 group-hover:opacity-30 transition-opacity"></div>
+                <span className="absolute bottom-3 left-4 text-white text-xs font-semibold px-2.5 py-1 bg-blue-600/80 backdrop-blur-sm rounded-md">
+                  Mühendislik Çözümü
+                </span>
+              </div>
 
-              <div>
-                {/* Header with Icon & Image Preview Container */}
-                <div className="flex items-center justify-between mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900/40 flex items-center justify-center text-2xl text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform">
-                    {service.icon}
-                  </div>
+              {/* Content Area */}
+              <div className="p-6 flex flex-col flex-grow justify-between space-y-4">
+                <div>
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                    {service.title}
+                  </h3>
                   
-                  {/* Small Image Preview that pops up/zooms on hover */}
-                  <div className="w-16 h-12 rounded-lg overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm">
-                    <img 
-                      src={service.image} 
-                      alt={service.title} 
-                      className="w-full h-full object-cover group-hover:scale-125 transition-transform duration-500" 
-                    />
+                  {/* Hover-aware dynamic description */}
+                  <div className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed min-h-[4.5rem]">
+                    <p className="group-hover:hidden transition-opacity duration-200">
+                      {service.shortDesc}
+                    </p>
+                    <p className="hidden group-hover:block text-blue-900 dark:text-blue-200 font-medium transition-opacity duration-200 animate-fadeIn">
+                      {service.detailDesc}
+                    </p>
                   </div>
                 </div>
 
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                  {service.title}
-                </h3>
-                
-                <p className="text-sm text-slate-600 dark:text-slate-400 line-clamp-3 leading-relaxed">
-                  {service.description}
-                </p>
-              </div>
-
-              {/* Card Footer / Action Link Indicator */}
-              <div className="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-sm font-semibold text-blue-600 dark:text-blue-400">
-                <span>Detaylı İncele</span>
-                <span className="transform group-hover:translate-x-1 transition-transform">→</span>
+                {/* Footer Link */}
+                <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-sm font-semibold text-blue-600 dark:text-blue-400">
+                  <span>Detaylı İncele</span>
+                  <span className="transform group-hover:translate-x-1 transition-transform">→</span>
+                </div>
               </div>
             </Link>
           ))}
