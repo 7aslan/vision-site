@@ -84,11 +84,11 @@ export default function Footer() {
               </li>
               <li className="flex items-center space-x-2.5">
                 <span className="text-blue-400 font-bold">📞</span>
-                <span>+90 (5XX) XXX XX XX</span>
+                <span>+90 (551) 126 29 69</span>
               </li>
               <li className="flex items-center space-x-2.5">
                 <span className="text-blue-400 font-bold">✉️</span>
-                <span>info@muhendislik.com</span>
+                <span>info@visionmuhendislik.com</span>
               </li>
             </ul>
           </div>
