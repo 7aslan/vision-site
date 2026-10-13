@@ -6,20 +6,21 @@ export default function Navbar({ darkMode, setDarkMode }) {
   return (
     <nav className="sticky top-0 z-50 transition-colors duration-300 bg-blue-900 text-white dark:bg-slate-900 dark:text-slate-100 border-b border-blue-800 dark:border-slate-800 shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16 items-center">
+        {/* Yükseklik h-20 yapılarak daha tok ve kurumsal bir görünüm kazandırıldı */}
+        <div className="flex justify-between h-20 items-center">
           
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <span className="text-xl font-bold tracking-tight text-white dark:text-blue-400">
+            <span className="text-2xl font-bold tracking-tight text-white dark:text-blue-400">
               Mühendislik<span className="text-blue-400">.</span>
             </span>
           </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#hero" className="text-sm font-medium text-slate-200 hover:text-white dark:text-slate-300 dark:hover:text-blue-400 transition-colors">Ana Sayfa</a>
-            <a href="#services" className="text-sm font-medium text-slate-200 hover:text-white dark:text-slate-300 dark:hover:text-blue-400 transition-colors">Hizmetler</a>
-            <a href="#contact" className="text-sm font-medium text-slate-200 hover:text-white dark:text-slate-300 dark:hover:text-blue-400 transition-colors">İletişim</a>
+            <a href="#hero" className="text-lg font-medium text-slate-200 hover:text-white dark:text-slate-300 dark:hover:text-blue-400 transition-colors">Ana Sayfa</a>
+            <a href="#services" className="text-lg font-medium text-slate-200 hover:text-white dark:text-slate-300 dark:hover:text-blue-400 transition-colors">Hizmetler</a>
+            <a href="#contact" className="text-lg font-medium text-slate-200 hover:text-white dark:text-slate-300 dark:hover:text-blue-400 transition-colors">İletişim</a>
             
             {/* Dark Mode Toggle Button */}
             <button 
@@ -47,7 +48,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
                 {isOpen ? (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth= {2} d="M4 6h16M4 12h16M4 18h16" />
                 )}
               </svg>
             </button>
@@ -57,7 +58,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
 
       {/* Mobile Menu Dropdown */}
       {isOpen && (
-        <div className="md:hidden bg-blue-950 dark:bg-slate-900 border-b border-blue-800 dark:border-slate-800 px-4 pt-2 pb-4 space-y-2">
+        <div className="md:hidden bg-blue-950 dark:bg-slate-900 border-b border-blue-800 dark:border-slate-800 px-4 pt-3 pb-5 space-y-2">
           <a href="#hero" className="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-blue-900">Ana Sayfa</a>
           <a href="#services" className="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-blue-900">Hizmetler</a>
           <a href="#contact" className="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-blue-900">İletişim</a>
