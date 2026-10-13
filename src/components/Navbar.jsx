@@ -12,7 +12,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <span className="text-2xl font-bold tracking-tight text-white dark:text-blue-400">
-              Mühendislik<span className="text-blue-400">.</span>
+              Mühendislik<span className="text-blue-400"></span>
             </span>
           </div>
 
