@@ -1,8 +1,4 @@
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: #f5f7fa;
-}
+@import "tailwindcss";
 
 /*
 :root {
