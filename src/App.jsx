@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Services from './components/Services';
-import Projects from './components/Projects';
+import Contact from './components/Contact';
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -20,7 +20,7 @@ export default function App() {
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
       <Hero />
       <Services />
-      <Projects />
+      <Contact />
     </div>
   );
 }
