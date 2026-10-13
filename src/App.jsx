@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Services from './components/Services';
 import Contact from './components/Contact';
+import ServiceDetail from './components/ServiceDetail';
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -18,9 +20,20 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#f4f5f8] dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
-      <Hero />
-      <Services />
-      <Contact />
+      
+      <Routes>
+        {/* Ana Sayfa */}
+        <Route path="/" element={
+          <>
+            <Hero />
+            <Services />
+            <Contact />
+          </>
+        } />
+
+        {/* Hizmet Detay Sayfası */}
+        <Route path="/hizmetler/:id" element={<ServiceDetail />} />
+      </Routes>
     </div>
   );
 }
