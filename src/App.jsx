@@ -9,6 +9,8 @@ function App() {
       <Navbar />
       <Hero />
       <Services />
+      <> Alt kisim footer eklenecek iletişim bilgisi vs. 
+      </>
     </>
   );
 }

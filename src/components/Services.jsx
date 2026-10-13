@@ -15,6 +15,8 @@ export default function Services() {
         <h3>Proje Yönetimi</h3>
         <p>Mühendislik, kurulum ve bakım hizmetleri</p>
       </div>
+      <> Servisler kısmı artırılacak 6-12 civarı. 
+      </>
     </div>
   );
-}
+}   
