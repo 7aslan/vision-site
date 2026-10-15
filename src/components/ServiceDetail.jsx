@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 
 // Tüm hizmetlerin detaylı verileri
 const servicesDetailsData = {
@@ -79,7 +79,20 @@ const servicesDetailsData = {
 
 export default function ServiceDetail() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const service = servicesDetailsData[id];
+
+  // İletişime geç butonuna tıklandığında ana sayfaya gidip #contact bölümüne yumuşak kaydırma yapar
+  const handleContactClick = (e) => {
+    e.preventDefault();
+    navigate('/');
+    setTimeout(() => {
+      const element = document.querySelector('#contact');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
 
   if (!service) {
     return (
@@ -114,9 +127,9 @@ export default function ServiceDetail() {
           </h1>
         </div>
 
-        {/* Büyük Kapak Görseli */}
+        {/* Büyük Kapak Görseli (SEO Uyumlu Alt Etiketi ile) */}
         <div className="relative h-72 sm:h-96 w-full rounded-2xl overflow-hidden shadow-xl border border-slate-200 dark:border-slate-800">
-          <img src={service.image} alt={service.title} className="w-full h-full object-cover" />
+          <img src={service.image} alt={`${service.title} - Vision Mühendislik`} className="w-full h-full object-cover" />
         </div>
 
         {/* İçerik ve Özellikler Grid */}
@@ -152,12 +165,12 @@ export default function ServiceDetail() {
             <div className="bg-blue-900 text-white p-6 rounded-2xl shadow-lg space-y-4 text-center">
               <h4 className="text-lg font-bold">Bu Hizmet İçin Teklif Alın</h4>
               <p className="text-xs text-slate-200">Projeleriniz için uzman mühendislerimizle hemen görüşün.</p>
-              <a 
-                href="/#contact" 
-                className="block w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow transition-colors text-center"
+              <button 
+                onClick={handleContactClick}
+                className="block w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow transition-colors text-center cursor-pointer"
               >
                 İletişime Geç
-              </a>
+              </button>
             </div>
           </div>
 
