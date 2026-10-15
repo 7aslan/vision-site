@@ -31,17 +31,21 @@ export default function Navbar({ darkMode, setDarkMode }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20 items-center">
           
-          {/* Logo - text-2xl yapılarak büyütüldü */}
+          {/* Logo Alanı - Görsel Logo ile Güncellendi */}
+          {/* Logo Alanı */}
           <div className="flex-shrink-0 flex items-center">
             <a 
               href="/" 
               onClick={handleLogoClick} 
-              className="text-2xl font-extrabold tracking-tight text-white dark:text-blue-400 cursor-pointer"
+              className="flex items-center cursor-pointer focus:outline-none"
             >
-              Mühendislik<span className="text-blue-400">.</span>
+              <img 
+                src="/logo_nav.png" 
+                alt="Vision Mühendislik" 
+                className="h-40 sm:h-40 w-auto object-contain mix-blend-screen"
+              />
             </a>
           </div>
-
           {/* Desktop Menu - Yazılar text-lg yapılarak büyütüldü */}
           <div className="hidden md:flex items-center space-x-8">
             <a href="#hero" onClick={() => handleNavClick('#hero')} className="text-lg font-medium text-slate-200 hover:text-white dark:text-slate-300 dark:hover:text-blue-400 transition-colors">Ana Sayfa</a>
@@ -63,18 +67,20 @@ export default function Navbar({ darkMode, setDarkMode }) {
             <button 
               onClick={() => setDarkMode(!darkMode)}
               className="p-2 rounded-lg bg-blue-800 dark:bg-slate-800 text-yellow-300 dark:text-slate-200"
+              aria-label="Tema Değiştir"
             >
               {darkMode ? '☀️' : '🌙'}
             </button>
             <button 
               onClick={() => setIsOpen(!isOpen)}
               className="text-white dark:text-slate-200 focus:outline-none"
+              aria-label="Menüyü Aç/Kapat"
             >
               <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 {isOpen ? (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWord="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                 )}
               </svg>
             </button>
