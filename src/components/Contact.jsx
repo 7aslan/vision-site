@@ -74,7 +74,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="text-sm font-semibold text-slate-900 dark:text-white">Telefon</h4>
-                  <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">+90 (5XX) XXX XX XX</p>
+                  <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">+90 (551) 126 29 69</p>
                 </div>
               </div>
 
