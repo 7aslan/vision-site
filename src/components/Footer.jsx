@@ -9,12 +9,16 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           
-          {/* Kolon 1: Logo & Şirket Özet Bilgisi */}
-          <div className="space-y-4">
-            <span className="text-2xl font-extrabold tracking-tight text-white dark:text-blue-400">
-              Mühendislik<span className="text-blue-500">.</span>
-            </span>
-            <p className="text-sm text-slate-300 dark:text-slate-400 leading-relaxed">
+       {/* Kolon 1: Logo & Şirket Özet Bilgisi */}
+          <div className="space-y-6"> {/* Aradaki boşluğu biraz artırdık */}
+            <Link to="/" className="inline-flex items-center">
+              <img 
+                src="/logo_nav.png" 
+                alt="Vision Mühendislik" 
+                className="h-36 w-auto object-contain" // Boyutu h-24 yaparak belirginleştirdik
+              />
+            </Link>
+            <p className="text-sm text-slate-300 dark:text-slate-400 leading-relaxed max-w-sm">
               Endüstriyel otomasyon, GES, AG-OG elektrik projeleri ve bina tesisat çözümlerinde güvenilir, yüksek standartlı mühendislik hizmetleri.
             </p>
           </div>
@@ -97,7 +101,7 @@ export default function Footer() {
 
         {/* Alt Çizgi & Telif Hakkı (Copyright) */}
         <div className="mt-12 pt-8 border-t border-blue-900/60 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 dark:text-slate-500 gap-4">
-          <p>© {currentYear} Mühendislik A.Ş. Tüm hakları saklıdır.</p>
+          <p>© {currentYear} Vision Mühendislik. Tüm hakları saklıdır.</p>
           <p className="text-slate-400 dark:text-slate-500">
             Güvenilir & Yenilikçi Mühendislik Çözümleri
           </p>
