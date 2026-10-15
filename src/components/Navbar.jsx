@@ -29,24 +29,24 @@ export default function Navbar({ darkMode, setDarkMode }) {
   return (
     <nav className="sticky top-0 z-50 transition-colors duration-300 bg-blue-900 text-white dark:bg-slate-900 dark:text-slate-100 border-b border-blue-800 dark:border-slate-800 shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-20 items-center">
+        <div className="flex justify-between h-24 items-center">
           
-          {/* Logo Alanı - Görsel Logo ile Güncellendi */}
-          {/* Logo Alanı */}
+          {/* Logo Alanı - İdeal ve net boyut */}
           <div className="flex-shrink-0 flex items-center">
             <a 
               href="/" 
               onClick={handleLogoClick} 
-              className="flex items-center cursor-pointer focus:outline-none"
+              className="flex items-center cursor-pointer focus:outline-none py-2"
             >
               <img 
                 src="/logo_nav.png" 
                 alt="Vision Mühendislik" 
-                className="h-40 sm:h-40 w-auto object-contain mix-blend-screen"
+                className="h-32 sm:h-32 w-auto object-contain mix-blend-screen"
               />
             </a>
           </div>
-          {/* Desktop Menu - Yazılar text-lg yapılarak büyütüldü */}
+
+          {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             <a href="#hero" onClick={() => handleNavClick('#hero')} className="text-lg font-medium text-slate-200 hover:text-white dark:text-slate-300 dark:hover:text-blue-400 transition-colors">Ana Sayfa</a>
             <a href="#services" onClick={() => handleNavClick('#services')} className="text-lg font-medium text-slate-200 hover:text-white dark:text-slate-300 dark:hover:text-blue-400 transition-colors">Hizmetler</a>
@@ -62,8 +62,8 @@ export default function Navbar({ darkMode, setDarkMode }) {
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center space-x-4">
+          {/* Mobile Menu Button - Sağa kayma yapmayacak şekilde hizalandı */}
+          <div className="md:hidden flex items-center space-x-3"> 
             <button 
               onClick={() => setDarkMode(!darkMode)}
               className="p-2 rounded-lg bg-blue-800 dark:bg-slate-800 text-yellow-300 dark:text-slate-200"
@@ -73,14 +73,14 @@ export default function Navbar({ darkMode, setDarkMode }) {
             </button>
             <button 
               onClick={() => setIsOpen(!isOpen)}
-              className="text-white dark:text-slate-200 focus:outline-none"
+              className="p-2 rounded-lg text-white dark:text-slate-200 focus:outline-none hover:bg-blue-800/50 transition-colors"
               aria-label="Menüyü Aç/Kapat"
             >
               <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 {isOpen ? (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                 )}
               </svg>
             </button>
