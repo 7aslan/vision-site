@@ -64,7 +64,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="text-sm font-semibold text-slate-900 dark:text-white">Adres</h4>
-                  <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">Organize Sanayi Bölgesi, Mühendislik Cad. No:12, Gaziantep</p>
+                  <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">SAM MAH. 66056 NOLU SK. NO: 31 A ŞEHİTKAMİL/GAZİANTEP</p>
                 </div>
               </div>
 

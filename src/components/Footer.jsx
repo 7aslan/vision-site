@@ -84,7 +84,7 @@ export default function Footer() {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start space-x-2.5">
                 <span className="text-blue-400 font-bold">📍</span>
-                <span>Organize Sanayi Bölgesi, Mühendislik Cad. No:12</span>
+                <span>SAM MAH. 66056 NOLU SK. NO: 31 ŞEHİTKAMİL/GAZİANTEP</span>
               </li>
               <li className="flex items-center space-x-2.5">
                 <span className="text-blue-400 font-bold">📞</span>
