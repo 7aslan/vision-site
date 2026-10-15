@@ -70,43 +70,46 @@ export default function Services() {
             <Link 
               key={service.id}
               to={`/hizmetler/${service.id}`}
-              className="group relative bg-white dark:bg-slate-950 rounded-2xl shadow-md hover:shadow-2xl border border-slate-200 dark:border-slate-800 transition-all duration-300 flex flex-col overflow-hidden"
+              className="group relative bg-white dark:bg-slate-950 rounded-2xl shadow-md hover:-translate-y-2 hover:shadow-[0_0_50px_10px_rgba(37,99,235,0.5)] dark:hover:shadow-[0_0_60px_15px_rgba(59,130,246,0.7)] border-2 border-slate-200 dark:border-slate-800 hover:border-blue-500 dark:hover:border-blue-400 transition-all duration-300 flex flex-col overflow-hidden"
             >
-              {/* Image Container strictly bounded inside card */}
-              <div className="relative h-48 w-full overflow-hidden bg-slate-100 dark:bg-slate-900">
+              {/* Image Container with Zoom Effect */}
+              <div className="relative h-52 w-full overflow-hidden bg-slate-100 dark:bg-slate-900">
                 <img 
                   src={service.image} 
-                  alt={service.title} 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                  alt={`${service.title} - Vision Mühendislik`} 
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" 
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-50 group-hover:opacity-30 transition-opacity"></div>
-                <span className="absolute bottom-3 left-4 text-white text-xs font-semibold px-2.5 py-1 bg-blue-600/80 backdrop-blur-sm rounded-md">
+                
+                {/* Gradient Shadow Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300"></div>
+                
+                <span className="absolute bottom-3 left-4 text-white text-xs font-semibold px-2.5 py-1 bg-blue-600/90 backdrop-blur-md rounded-md shadow-sm">
                   Mühendislik Çözümü
                 </span>
               </div>
 
-              {/* Content Area */}
-              <div className="p-6 flex flex-col flex-grow justify-between space-y-4">
+              {/* Content Area with Glassmorphism Hover Transition */}
+              <div className="p-6 flex flex-col flex-grow justify-between space-y-4 relative">
                 <div>
                   <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                     {service.title}
                   </h3>
                   
-                  {/* Hover-aware dynamic description */}
-                  <div className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed min-h-[4.5rem]">
-                    <p className="group-hover:hidden transition-opacity duration-200">
+                  {/* Dynamic Description with Glassmorphism Slide Effect */}
+                  <div className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed min-h-[4.5rem] relative">
+                    <p className="group-hover:opacity-0 transition-opacity duration-300">
                       {service.shortDesc}
                     </p>
-                    <p className="hidden group-hover:block text-blue-900 dark:text-blue-200 font-medium transition-opacity duration-200 animate-fadeIn">
+                    <p className="absolute inset-0 opacity-0 group-hover:opacity-100 text-blue-900 dark:text-blue-200 font-medium transition-all duration-300 transform translate-y-1 group-hover:translate-y-0">
                       {service.detailDesc}
                     </p>
                   </div>
                 </div>
 
-                {/* Footer Link */}
+                {/* Footer Link with Slide Animation */}
                 <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-sm font-semibold text-blue-600 dark:text-blue-400">
-                  <span>Detaylı İncele</span>
-                  <span className="transform group-hover:translate-x-1 transition-transform">→</span>
+                  <span className="group-hover:underline">Detaylı İncele</span>
+                  <span className="transform group-hover:translate-x-2 transition-transform duration-300">→</span>
                 </div>
               </div>
             </Link>
