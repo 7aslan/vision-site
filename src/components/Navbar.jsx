@@ -23,6 +23,9 @@ export default function Navbar({ darkMode, setDarkMode }) {
         const element = document.querySelector(hash);
         if (element) element.scrollIntoView({ behavior: 'smooth' });
       }, 100);
+    } else {
+      const element = document.querySelector(hash);
+      if (element) element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -31,7 +34,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-24 items-center">
           
-          {/* Logo Alanı - İdeal ve net boyut */}
+          {/* Logo Alanı */}
           <div className="flex-shrink-0 flex items-center">
             <a 
               href="/" 
@@ -50,6 +53,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
           <div className="hidden md:flex items-center space-x-8">
             <a href="#hero" onClick={() => handleNavClick('#hero')} className="text-lg font-medium text-slate-200 hover:text-white dark:text-slate-300 dark:hover:text-blue-400 transition-colors">Ana Sayfa</a>
             <a href="#services" onClick={() => handleNavClick('#services')} className="text-lg font-medium text-slate-200 hover:text-white dark:text-slate-300 dark:hover:text-blue-400 transition-colors">Hizmetler</a>
+            <a href="#projects" onClick={() => handleNavClick('#projects')} className="text-lg font-medium text-slate-200 hover:text-white dark:text-slate-300 dark:hover:text-blue-400 transition-colors">Projeler</a>
             <a href="#contact" onClick={() => handleNavClick('#contact')} className="text-lg font-medium text-slate-200 hover:text-white dark:text-slate-300 dark:hover:text-blue-400 transition-colors">İletişim</a>
             
             {/* Dark Mode Toggle Button */}
@@ -62,7 +66,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
             </button>
           </div>
 
-          {/* Mobile Menu Button - Sağa kayma yapmayacak şekilde hizalandı */}
+          {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center space-x-3"> 
             <button 
               onClick={() => setDarkMode(!darkMode)}
@@ -93,6 +97,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
         <div className="md:hidden bg-blue-950 dark:bg-slate-900 border-b border-blue-800 dark:border-slate-800 px-4 pt-3 pb-5 space-y-3">
           <a href="#hero" onClick={() => handleNavClick('#hero')} className="block px-3 py-2 rounded-md text-lg font-medium text-slate-200 hover:bg-blue-900">Ana Sayfa</a>
           <a href="#services" onClick={() => handleNavClick('#services')} className="block px-3 py-2 rounded-md text-lg font-medium text-slate-200 hover:bg-blue-900">Hizmetler</a>
+          <a href="#projects" onClick={() => handleNavClick('#projects')} className="block px-3 py-2 rounded-md text-lg font-medium text-slate-200 hover:bg-blue-900">Projeler</a>
           <a href="#contact" onClick={() => handleNavClick('#contact')} className="block px-3 py-2 rounded-md text-lg font-medium text-slate-200 hover:bg-blue-900">İletişim</a>
         </div>
       )}
