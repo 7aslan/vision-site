@@ -51,42 +51,58 @@ export default function Contact() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           
-          {/* Sol Taraf: İletişim Bilgileri */}
+          {/* Sol Taraf: Tıklanabilir İletişim Bilgileri */}
           <div className="space-y-8 bg-[#f4f5f8] dark:bg-slate-950 p-8 rounded-2xl border border-slate-200 dark:border-slate-800">
             <h3 className="text-xl font-bold text-slate-900 dark:text-white">
               İletişim Bilgilerimiz
             </h3>
             
             <div className="space-y-6">
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 rounded-xl bg-blue-600/10 dark:bg-blue-500/20 flex items-center justify-center text-blue-600 dark:text-blue-400 text-xl font-bold shrink-0">
+              
+              {/* Adres - Google Maps Linki */}
+              <a 
+                href="https://www.google.com/maps/search/?api=1&query=SAM+MAH.+66056+NOLU+SK.+NO:+31+A+ŞEHİTKAMİL/GAZİANTEP" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-start space-x-4 p-3 -mx-3 rounded-xl hover:bg-slate-200/60 dark:hover:bg-slate-900/60 transition-all group cursor-pointer"
+              >
+                <div className="w-12 h-12 rounded-xl bg-blue-600/10 dark:bg-blue-500/20 flex items-center justify-center text-blue-600 dark:text-blue-400 text-xl font-bold shrink-0 group-hover:scale-105 transition-transform">
                   📍
                 </div>
                 <div>
-                  <h4 className="text-sm font-semibold text-slate-900 dark:text-white">Adres</h4>
+                  <h4 className="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Adres</h4>
                   <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">SAM MAH. 66056 NOLU SK. NO: 31 A ŞEHİTKAMİL/GAZİANTEP</p>
                 </div>
-              </div>
+              </a>
 
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 rounded-xl bg-blue-600/10 dark:bg-blue-500/20 flex items-center justify-center text-blue-600 dark:text-blue-400 text-xl font-bold shrink-0">
+              {/* Telefon - Doğrudan Arama (tel:) */}
+              <a 
+                href="tel:+905511262969" 
+                className="flex items-start space-x-4 p-3 -mx-3 rounded-xl hover:bg-slate-200/60 dark:hover:bg-slate-900/60 transition-all group cursor-pointer"
+              >
+                <div className="w-12 h-12 rounded-xl bg-blue-600/10 dark:bg-blue-500/20 flex items-center justify-center text-blue-600 dark:text-blue-400 text-xl font-bold shrink-0 group-hover:scale-105 transition-transform">
                   📞
                 </div>
                 <div>
-                  <h4 className="text-sm font-semibold text-slate-900 dark:text-white">Telefon</h4>
+                  <h4 className="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Telefon</h4>
                   <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">+90 (551) 126 29 69</p>
                 </div>
-              </div>
+              </a>
 
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 rounded-xl bg-blue-600/10 dark:bg-blue-500/20 flex items-center justify-center text-blue-600 dark:text-blue-400 text-xl font-bold shrink-0">
+              {/* E-Posta - Mail Uygulaması (mailto:) */}
+              <a 
+                href="mailto:info@visionmuhendislik.com" 
+                className="flex items-start space-x-4 p-3 -mx-3 rounded-xl hover:bg-slate-200/60 dark:hover:bg-slate-900/60 transition-all group cursor-pointer"
+              >
+                <div className="w-12 h-12 rounded-xl bg-blue-600/10 dark:bg-blue-500/20 flex items-center justify-center text-blue-600 dark:text-blue-400 text-xl font-bold shrink-0 group-hover:scale-105 transition-transform">
                   ✉️
                 </div>
                 <div>
-                  <h4 className="text-sm font-semibold text-slate-900 dark:text-white">E-Posta</h4>
+                  <h4 className="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">E-Posta</h4>
                   <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">info@visionmuhendislik.com</p>
                 </div>
-              </div>
+              </a>
+
             </div>
           </div>
 
