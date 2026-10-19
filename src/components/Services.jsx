@@ -1,50 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-const servicesData = [
-  {
-    id: 'endustriyel-otomasyon',
-    title: 'Endüstriyel Otomasyon',
-    shortDesc: 'PLC, SCADA ve fabrika otomasyon sistemleri ile üretim hatlarınızda maksimum verimlilik.',
-    detailDesc: 'Üretim süreçlerinizi dijitalleştiriyor; PLC, SCADA ve robotik sistem entegrasyonlarıyla hat duruş sürelerini minimuma indirip operasyonel verimliliği artırıyoruz.',
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800'
-  },
-  {
-    id: 'gunes-enerji-sistemleri',
-    title: 'Güneş Enerji Sistemleri (GES)',
-    shortDesc: 'Çatı ve arazi GES projelerinde anahtar teslim mühendislik ve kurulum çözümleri.',
-    detailDesc: 'Endüstriyel tesisleriniz ve işletmeleriniz için yüksek verimli fotovoltaik güneş enerjisi sistemleri tasarlıyor, fizibilite ve anahtar teslim kurulum yapıyoruz.',
-    image: 'https://images.unsplash.com/photo-1509391365360-804d21f7c32e?auto=format&fit=crop&q=80&w=800'
-  },
-  {
-    id: 'ag-og-elektrik-projeleri',
-    title: 'AG-OG Elektrik Projeleri',
-    shortDesc: 'Alçak ve orta gerilim dağıtım sistemleri, trafo merkezleri ve enerji nakil hatları.',
-    detailDesc: 'Tesislerinizin enerji altyapısını ulusal ve uluslararası standartlara uygun tasarlıyor; AG-OG dağıtım panoları, trafo ve şalt merkezleri projelerini hayata geçiriyoruz.',
-    image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80&w=800'
-  },
-  {
-    id: 'proje-yonetimi',
-    title: 'Proje Yönetimi & Danışmanlık',
-    shortDesc: 'Mühendislik projelerinizde süreç optimizasyonu ve maliyet yönetimi.',
-    detailDesc: 'Karmaşık mühendislik projelerini bütçe, zaman ve kalite kısıtları içerisinde başarıyla yönetiyor; teknik müşavirlik ve kapsamlı risk analizi hizmetleri sunuyoruz.',
-    image: 'https://images.unsplash.com/photo-1541888946425-d0fbb18f7645?auto=format&fit=crop&q=80&w=800'
-  },
-  {
-    id: 'bina-elektrik-tesisati',
-    title: 'Bina Elektrik Tesisatı',
-    shortDesc: 'Ticari ve endüstriyel binalar için akıllı bina ve aydınlatma sistemleri.',
-    detailDesc: 'Modern yapılar ve endüstriyel binalar için güçlü zayıf akım, aydınlatma otomasyonu, yangın ihbar ve komple anahtar teslim bina elektrik tesisat çözümleri.',
-    image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=800'
-  },
-  {
-    id: 'kablaj-muhendisligi',
-    title: 'Kablaj Mühendisliği',
-    shortDesc: 'Özel endüstriyel panolar ve kablo rotalama optimizasyonu.',
-    detailDesc: 'Endüstriyel makineler ve kontrol panoları için yüksek kaliteli kablaj, harness tasarımı, elektromanyetik uyumluluk (EMC) ve düzenli kablo rotalama mühendisliği.',
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800'
-  }
-];
+import { servicesData } from '../data/servicesData';
 
 export default function Services() {
   return (
@@ -78,14 +34,13 @@ export default function Services() {
                   src={service.image} 
                   alt={`${service.title} - Vision Mühendislik`} 
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" 
+                  loading="lazy"
                 />
                 
                 {/* Gradient Shadow Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300"></div>
                 
-                <span className="absolute bottom-3 left-4 text-white text-xs font-semibold px-2.5 py-1 bg-blue-600/90 backdrop-blur-md rounded-md shadow-sm">
-                  Mühendislik Çözümü
-                </span>
+                
               </div>
 
               {/* Content Area with Glassmorphism Hover Transition */}

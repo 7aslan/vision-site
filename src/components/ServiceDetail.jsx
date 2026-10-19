@@ -1,88 +1,14 @@
 import React from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-
-// Tüm hizmetlerin detaylı verileri
-const servicesDetailsData = {
-  'endustriyel-otomasyon': {
-    title: 'Endüstriyel Otomasyon Sistemleri',
-    category: 'Otomasyon',
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1200',
-    description: 'Üretim süreçlerinizi dijitalleştiriyor; PLC, SCADA ve robotik sistem entegrasyonlarıyla hat duruş sürelerini minimuma indirip operasyonel verimliliği artırıyoruz.',
-    features: [
-      'Siemens, Schneider ve Allen-Bradley PLC programlama',
-      'Endüstriyel SCADA ve HMI arayüz tasarımı',
-      'Üretim hattı optimizasyonu ve hatasızlık kontrolü',
-      '7/24 uzaktan izleme ve arıza destek altyapısı'
-    ]
-  },
-  'gunes-enerji-sistemleri': {
-    title: 'Güneş Enerji Sistemleri (GES)',
-    category: 'Enerji',
-    image: 'https://images.unsplash.com/photo-1509391365360-804d21f7c32e?auto=format&fit=crop&q=80&w=1200',
-    description: 'Endüstriyel tesisleriniz ve işletmeleriniz için yüksek verimli fotovoltaik güneş enerjisi sistemleri tasarlıyor, fizibilite ve anahtar teslim kurulum yapıyoruz.',
-    features: [
-      'Çatı ve arazi tipi GES projelerinde anahtar teslim çözüm',
-      'Detaylı gölgeleme analizi ve üretim simülasyonları',
-      'TEDAŞ ve EDAŞ onay süreçleri, proje yönetimi',
-      'Yüksek kaliteli inverter ve panel optimizasyonu'
-    ]
-  },
-  'ag-og-elektrik-projeleri': {
-    title: 'AG-OG Elektrik Projeleri',
-    category: 'Elektrik Altyapı',
-    image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80&w=1200',
-    description: 'Tesislerinizin enerji altyapısını ulusal ve uluslararası standartlara uygun tasarlıyor; AG-OG dağıtım panoları, trafo ve şalt merkezleri projelerini hayata geçiriyoruz.',
-    features: [
-      'Orta gerilim hücre ve trafo merkezi tasarımı',
-      'Kablo kesit hesapları ve gerilim düşümü analizleri',
-      'Kompanzasyon ve reaktif güç yönetimi projeleri',
-      'Güç dağıtım şebekesi simülasyonları'
-    ]
-  },
-  'proje-yonetimi': {
-    title: 'Proje Yönetimi & Danışmanlık',
-    category: 'Danışmanlık',
-    image: 'https://images.unsplash.com/photo-1541888946425-d0fbb18f7645?auto=format&fit=crop&q=80&w=1200',
-    description: 'Karmaşık mühendislik projelerini bütçe, zaman ve kalite kısıtları içerisinde başarıyla yönetiyor; teknik müşavirlik ve kapsamlı risk analizi hizmetleri sunuyoruz.',
-    features: [
-      'İş programı (Gantt) ve bütçe planlaması',
-      'Taşeron koordinasyonu ve kalite kontrol denetimleri',
-      'Mevzuat uygunluk ve teknik şartname hazırlama',
-      'Risk yönetimi ve maliyet optimizasyonu'
-    ]
-  },
-  'bina-elektrik-tesisati': {
-    title: 'Bina Elektrik Tesisatı',
-    category: 'Zayıf & Kuvvetli Akım',
-    image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=1200',
-    description: 'Modern yapılar ve endüstriyel binalar için güçlü zayıf akım, aydınlatma otomasyonu, yangın ihbar ve komple anahtar teslim bina elektrik tesisat çözümleri.',
-    features: [
-      'Aydınlatma ve priz tesisat projeleri',
-      'Yangın algılama ve acil anons sistemleri',
-      'CCTV güvenlik ve geçiş kontrol sistemleri',
-      'Zayıf akım ve yapısal kablolama'
-    ]
-  },
-  'kablaj-muhendisligi': {
-    title: 'Kablaj Mühendisliği',
-    category: 'Pano & Kablolama',
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1200',
-    description: 'Endüstriyel makineler ve kontrol panoları için yüksek kaliteli kablaj, harness tasarımı, elektromanyetik uyumluluk (EMC) ve düzenli kablo rotalama mühendisliği.',
-    features: [
-      'Özel endüstriyel kablo demeti (harness) tasarımı',
-      'Pano içi düzen ve elektromanyetik uyumluluk (EMC)',
-      'Kablo rotalama optimizasyonu ve etiketleme',
-      'Yüksek akım ve sinyal iletim testleri'
-    ]
-  }
-};
+import { servicesData } from '../data/servicesData';
 
 export default function ServiceDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const service = servicesDetailsData[id];
 
-  // İletişime geç butonuna tıklandığında ana sayfaya gidip #contact bölümüne yumuşak kaydırma yapar
+  // Veriyi dinamik dosyadan id'ye göre filtreleyip çekiyoruz
+  const service = servicesData.find((s) => s.id === id);
+
   const handleContactClick = (e) => {
     e.preventDefault();
     navigate('/');
@@ -127,26 +53,30 @@ export default function ServiceDetail() {
           </h1>
         </div>
 
-        {/* Büyük Kapak Görseli (SEO Uyumlu Alt Etiketi ile) */}
-        <div className="relative h-72 sm:h-96 w-full rounded-2xl overflow-hidden shadow-xl border border-slate-200 dark:border-slate-800">
-          <img src={service.image} alt={`${service.title} - Vision Mühendislik`} className="w-full h-full object-cover" />
+        {/* Büyük Kapak Görseli (Cloudinary CDN) */}
+        <div className="relative h-72 sm:h-96 w-full rounded-2xl overflow-hidden shadow-xl border border-slate-200 dark:border-slate-800 bg-slate-900">
+          <img 
+            src={service.image} 
+            alt={`${service.title} - Vision Mühendislik`} 
+            className="w-full h-full object-cover" 
+          />
         </div>
 
         {/* İçerik ve Özellikler Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
           
-          {/* Sol / Ana Açıklama (2 Sütun) */}
+          {/* Sol / Ana Açıklama */}
           <div className="lg:col-span-2 space-y-6 bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-md border border-slate-200 dark:border-slate-800">
             <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Hizmet Detayları</h3>
             <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-base">
-              {service.description}
+              {service.detailDesc}
             </p>
             <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-base">
               Mühendislik ekibimiz, en son endüstriyel standartları ve teknolojik altyapıyı kullanarak projenizin başından sonuna kadar kusursuz bir süreç yürütür. Kalite kontrol ve güvenlik önlemleri en üst düzeyde tutulur.
             </p>
           </div>
 
-          {/* Sağ / Teknik Avantajlar & Teklif Kutusu (1 Sütun) */}
+          {/* Sağ / Teknik Avantajlar & Teklif Kutusu */}
           <div className="space-y-6">
             <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl shadow-md border border-slate-200 dark:border-slate-800 space-y-4">
               <h4 className="text-lg font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-3">
