@@ -6,8 +6,9 @@ import Services from './components/Services';
 import Contact from './components/Contact';
 import ServiceDetail from './components/ServiceDetail';
 import ScrollToTop from './components/ScrollToTop';
-import Footer from './components/Footer'; // 1. Import et
+import Footer from './components/Footer';
 import Projects from './components/Projects'; 
+import ProjectDetail from './components/ProjectDetail';
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -32,17 +33,19 @@ export default function App() {
             <>
               <Hero />
               <Services />
-              <Projects/>
+              <Projects />
               <Contact />
             </>
           } />
 
           {/* Hizmet Detay Sayfası */}
           <Route path="/hizmetler/:id" element={<ServiceDetail />} />
+
+          {/* Proje Detay Sayfası (YENİ EKLENEN) */}
+          <Route path="/projeler/:id" element={<ProjectDetail />} />
         </Routes>
       </div>
 
-      {/* 2. En alta Footer ekle */}
       <Footer />
     </div>
   );

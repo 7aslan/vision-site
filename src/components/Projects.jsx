@@ -1,15 +1,8 @@
-import React, { useState } from 'react';
-import { projectsData } from '../data/projectsData'; // Veriyi dışarıdan alıyoruz
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { projectsData } from '../data/projectsData';
 
 export default function Projects() {
-  const [selectedProject, setSelectedProject] = useState(null);
-  const [activeMediaIndex, setActiveMediaIndex] = useState(0);
-
-  const openProjectModal = (project) => {
-    setSelectedProject(project);
-    setActiveMediaIndex(0);
-  };
-
   return (
     <section id="projects" className="py-24 bg-slate-50 dark:bg-slate-900 transition-colors duration-300 border-t border-slate-200 dark:border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -27,22 +20,23 @@ export default function Projects() {
           </p>
         </div>
 
-        {/* Otomatik Oluşan Proje Kutuları (Grid) */}
+        {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projectsData.map((project) => (
-            <div 
+            <Link 
               key={project.id}
-              onClick={() => openProjectModal(project)}
-              className="group relative bg-white dark:bg-slate-950 rounded-2xl shadow-md hover:-translate-y-2 hover:shadow-[0_0_50px_10px_rgba(37,99,235,0.5)] dark:hover:shadow-[0_0_60px_15px_rgba(59,130,246,0.7)] border-2 border-slate-200 dark:border-slate-800 hover:border-blue-500 dark:hover:border-blue-400 transition-all duration-300 cursor-pointer flex flex-col overflow-hidden"
+              to={`/projeler/${project.id}`}
+              className="group relative bg-white dark:bg-slate-950 rounded-2xl shadow-md hover:-translate-y-2 hover:shadow-[0_0_50px_10px_rgba(37,99,235,0.5)] dark:hover:shadow-[0_0_60px_15px_rgba(59,130,246,0.7)] border-2 border-slate-200 dark:border-slate-800 hover:border-blue-500 dark:hover:border-blue-400 transition-all duration-300 flex flex-col overflow-hidden"
             >
-              {/* Kapak Resmi (Ana Görsel) */}
-              <div className="relative h-52 w-full overflow-hidden bg-slate-100 dark:bg-slate-900">
+              {/* Kapak Görseli */}
+              <div className="relative h-56 w-full overflow-hidden bg-slate-100 dark:bg-slate-900">
                 <img 
                   src={project.coverImage} 
                   alt={project.title}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                 />
                 
+                {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300"></div>
                 
                 <span className="absolute bottom-3 left-4 text-white text-xs font-semibold px-2.5 py-1 bg-blue-600/90 backdrop-blur-md rounded-md shadow-sm">
@@ -50,7 +44,7 @@ export default function Projects() {
                 </span>
               </div>
 
-              {/* Açıklamalar ve Başlık */}
+              {/* İçerik */}
               <div className="p-6 flex flex-col flex-grow justify-between space-y-4 relative">
                 <div>
                   <span className="text-xs font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wider block mb-1">
@@ -64,117 +58,17 @@ export default function Projects() {
                   </p>
                 </div>
 
+                {/* Footer Link */}
                 <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-sm font-semibold text-blue-600 dark:text-blue-400">
-                  <span className="group-hover:underline">Galeriyi İncele</span>
+                  <span className="group-hover:underline">Proje Detaylarını Gör</span>
                   <span className="transform group-hover:translate-x-2 transition-transform duration-300">→</span>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
       </div>
-
-      {/* Proje Galeri Modalı (Pop-up) */}
-      {selectedProject && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-md animate-fade-in">
-          <div className="bg-white dark:bg-slate-900 max-w-4xl w-full rounded-2xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800 relative max-h-[90vh] flex flex-col">
-            
-            {/* Modal Header */}
-            <div className="p-5 border-b border-slate-200 dark:border-slate-800 flex justify-between items-center bg-slate-50 dark:bg-slate-950">
-              <div>
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white">
-                  {selectedProject.title}
-                </h3>
-                <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-                  {selectedProject.subtitle} • {activeMediaIndex + 1} / {selectedProject.gallery.length}
-                </p>
-              </div>
-              <button 
-                onClick={() => setSelectedProject(null)}
-                className="w-9 h-9 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-200 flex items-center justify-center hover:bg-red-500 hover:text-white transition-colors"
-              >
-                ✕
-              </button>
-            </div>
-
-            {/* Büyük Medya Gösterim Alanı */}
-            <div className="relative bg-black flex-1 min-h-[320px] max-h-[480px] flex items-center justify-center overflow-hidden">
-              {selectedProject.gallery[activeMediaIndex].type === 'video' ? (
-                <video 
-                  controls 
-                  autoPlay 
-                  key={selectedProject.gallery[activeMediaIndex].url}
-                  className="w-full h-full max-h-[480px] object-contain"
-                >
-                  <source src={selectedProject.gallery[activeMediaIndex].url} type="video/mp4" />
-                  Tarayıcınız video oynatmayı desteklemiyor.
-                </video>
-              ) : (
-                <img 
-                  src={selectedProject.gallery[activeMediaIndex].url} 
-                  alt={selectedProject.gallery[activeMediaIndex].caption} 
-                  className="w-full h-full max-h-[480px] object-contain"
-                />
-              )}
-
-              {/* Ok Butonları */}
-              {activeMediaIndex > 0 && (
-                <button 
-                  onClick={() => setActiveMediaIndex(prev => prev - 1)}
-                  className="absolute left-3 p-2 rounded-full bg-black/60 text-white hover:bg-blue-600 transition-colors"
-                >
-                  ◀
-                </button>
-              )}
-              {activeMediaIndex < selectedProject.gallery.length - 1 && (
-                <button 
-                  onClick={() => setActiveMediaIndex(prev => prev + 1)}
-                  className="absolute right-3 p-2 rounded-full bg-black/60 text-white hover:bg-blue-600 transition-colors"
-                >
-                  ▶
-                </button>
-              )}
-
-              <div className="absolute bottom-0 inset-x-0 bg-slate-950/70 text-white text-xs px-4 py-2 text-center backdrop-blur-sm">
-                {selectedProject.gallery[activeMediaIndex].caption}
-              </div>
-            </div>
-
-            {/* Küçük Resimler (Thumbnails) Şeridi */}
-            <div className="p-4 bg-slate-100 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 overflow-x-auto flex space-x-3">
-              {selectedProject.gallery.map((media, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setActiveMediaIndex(idx)}
-                  className={`relative flex-shrink-0 w-20 h-14 rounded-lg overflow-hidden border-2 transition-all ${
-                    activeMediaIndex === idx 
-                      ? 'border-blue-600 scale-105 shadow-md' 
-                      : 'border-transparent opacity-60 hover:opacity-100'
-                  }`}
-                >
-                  <img 
-                    src={media.type === 'video' ? (media.poster || media.url) : media.url} 
-                    alt={media.caption} 
-                    className="w-full h-full object-cover"
-                  />
-                  {media.type === 'video' && (
-                    <span className="absolute inset-0 bg-black/40 flex items-center justify-center text-white text-xs font-bold">
-                      ▶
-                    </span>
-                  )}
-                </button>
-              ))}
-            </div>
-
-            {/* Modal Açıklama */}
-            <div className="p-5 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 text-sm leading-relaxed border-t border-slate-200 dark:border-slate-800">
-              {selectedProject.description}
-            </div>
-
-          </div>
-        </div>
-      )}
     </section>
   );
 }

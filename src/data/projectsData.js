@@ -3,32 +3,32 @@ export const projectsData = [
   {
     id: "maden-sahasi",
     title: "Maden Sahası Otomasyonu",
-    subtitle: "Endüstriyel Altyapı",
-    description: "Maden sahası için gerçekleştirilen komple otomasyon, pano imalatı ve saha kablaj mühendisliği çalışmaları.",
-    coverImage: "https://res.cloudinary.com/senin-cloud-adin/image/upload/v1/vision/maden/kapak.jpg", // Cloudinary kapak linki
+    subtitle: "Endüstriyel Altyapı & Saha Uygulamaları",
+    description: "Maden sahası için gerçekleştirilen komple otomasyon, PLC/SCADA yazılımı, pano imalatı ve saha kablaj mühendisliği çalışmaları.",
+    coverImage: "https://res.cloudinary.com/dkup33xp3/image/upload/v1792412243/kablaj_ie3l1c.jpg", // Gerçek Cloudinary URL'in gelecek
+    client: "Maden A.Ş.",
+    location: "Gaziantep",
+    date: "2024",
     gallery: [
-      { type: 'image', url: 'https://res.cloudinary.com/.../maden/foto1.jpg', caption: 'Saha Genel Görünüm' },
-      { type: 'image', url: 'https://res.cloudinary.com/.../maden/foto2.jpg', caption: 'Pano Montajı' },
-      { type: 'image', url: 'https://res.cloudinary.com/.../maden/foto3.jpg', caption: 'Kablaj Detayı' },
-      { type: 'image', url: 'https://res.cloudinary.com/.../maden/foto4.jpg', caption: 'Test Aşaması' },
-      { type: 'image', url: 'https://res.cloudinary.com/.../maden/foto5.jpg', caption: 'Kontrol Odası' },
-      { type: 'video', url: 'https://res.cloudinary.com/.../maden/video1.mp4', poster: 'https://res.cloudinary.com/.../maden/kapak.jpg', caption: 'Sistem Çalışma Videosu' }
+      { type: 'image', url: 'https://res.cloudinary.com/dkup33xp3/image/upload/v1792412221/elektrik2_xldkgr.jpg', caption: '' },
+      { type: 'image', url: 'https://res.cloudinary.com/dkup33xp3/image/upload/v1792412221/elektrik3_ywct3o.jpg', caption: '' },
+      { type: 'image', url: 'https://res.cloudinary.com/dkup33xp3/image/upload/v1792412221/elektrik1_nm7sjf.jpg', caption: '' },
+      { type: 'video', url: 'https://res.cloudinary.com/dkup33xp3/video/upload/v1792412233/og-ag_elektrik_bwrkhk.mp4', poster: 'https://res.cloudinary.com/dkup33xp3/video/upload/v1792412233/og-ag_elektrik_bwrkhk.mp4', caption: 'Saha Test Videosu' }
     ]
   },
   {
     id: "bedir-un-fabrikasi",
     title: "Bedir Un Fabrikası Projesi",
-    subtitle: "Üretim Hattı Modernizasyonu",
-    description: "Bedir Un Fabrikası için yapılan PLC tabanlı otomasyon, güç dağılımı ve anahtar teslim elektrik tesisat işleri.",
-    coverImage: "https://res.cloudinary.com/senin-cloud-adin/image/upload/v1/vision/bedir/kapak.jpg",
+    subtitle: "Kablaj Mühendisliği & Elektrik Panoları",
+    description: "BEDİR Un Fabrikası bünyesinde bulunan elevatör, vals (öğütme), aspiratör ve fan, helezon konveyör, rotary valf, plansifter (elek), kompresör, pnömatik taşıma, paketleme ve paletleme sistemlerine ait elektrik motorlarının enerji beslemelerini sağlamak amacıyla yeni elektrik kumanda ve dağıtım panolarının imalatı gerçekleştirilmiştir. ",
+    coverImage: "https://res.cloudinary.com/dkup33xp3/image/upload/v1792412239/elektrik-pano_hvzvws.jpg",
+    client: "Bedir Un Sanayi",
+    location: "Gaziantep OSB",
+    date: "2024",
     gallery: [
-      { type: 'image', url: 'https://res.cloudinary.com/.../bedir/foto1.jpg', caption: 'Fabrika Dış Plan' },
-      { type: 'image', url: 'https://res.cloudinary.com/.../bedir/foto2.jpg', caption: 'AG Dağıtım Panosu' },
-      { type: 'image', url: 'https://res.cloudinary.com/.../bedir/foto3.jpg', caption: 'Sensör Entegrasyonu' },
-      { type: 'image', url: 'https://res.cloudinary.com/.../bedir/foto4.jpg', caption: 'Kablo Kanal Düzeni' },
-      { type: 'image', url: 'https://res.cloudinary.com/.../bedir/foto5.jpg', caption: 'Devreye Alma' },
-      { type: 'video', url: 'https://res.cloudinary.com/.../bedir/video1.mp4', poster: 'https://res.cloudinary.com/.../bedir/kapak.jpg', caption: 'Fabrika Test Videosu' }
+      { type: 'image', url: 'https://res.cloudinary.com/dkup33xp3/image/upload/v1792412239/elektrik-pano_hvzvws.jpg', caption: 'Kablo Kanal Düzeni' },
+      { type: 'image', url: 'https://res.cloudinary.com/dkup33xp3/image/upload/v1792412243/kablaj_ie3l1c.jpg', caption: 'Devreye Alma Ölçümleri' },
+      { type: 'video', url: 'https://res.cloudinary.com/dkup33xp3/video/upload/v1792412275/WhatsApp_Video_2026-10-15_at_20.55.44_v6hx5v.mp4', poster: 'https://res.cloudinary.com/dkup33xp3/video/upload/v1792412275/WhatsApp_Video_2026-10-15_at_20.55.44_v6hx5v.mp4', caption: 'Fabrika Otomasyon Test Videosu' }
     ]
   }
-  // Yarın 3. bir proje geldiğinde sadece buraya bir süslü parantez ({...}) daha ekleyeceksin!
-];  
+];
