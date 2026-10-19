@@ -16,24 +16,30 @@ export default function Projects() {
             Saha Çalışmalarımız & Projeler
           </h2>
           <p className="text-base text-slate-600 dark:text-slate-400">
-            Mühendislik kalitemizi yansıtan saha uygulamalarımızı ve detaylı proje galerilerimizi inceleyebilirsiniz.
+            Mühendislik kalitemizi yansıtan saha uygulamalarımızı ve detaylı proje galerilerimizi inceleyebilirsiniz. 
+            İleride eklenecek onlarca proje için mobilde yatay kaydırma ile kolayca gezilebilir.
           </p>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* 
+          DÜZENLEME: 
+          - Mobilde (sm ve altı): Yatay kaydırma (flex, overflow-x-auto, snap-x) yaptık. 100 tane proje olsa bile alt alta yığılıp elini kırmaz, sağa sola kaydırarak bakarsın.
+          - Tablet ve Masaüstünde (md ve üstü): Normal şık Grid (3'lü yan yana) yapısına devam eder.
+        */}
+        <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 overflow-x-auto md:overflow-visible pb-6 md:pb-0 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-blue-600">
           {projectsData.map((project) => (
             <Link 
               key={project.id}
               to={`/projeler/${project.id}`}
-              className="group relative bg-white dark:bg-slate-950 rounded-2xl shadow-md hover:-translate-y-2 hover:shadow-[0_0_50px_10px_rgba(37,99,235,0.5)] dark:hover:shadow-[0_0_60px_15px_rgba(59,130,246,0.7)] border-2 border-slate-200 dark:border-slate-800 hover:border-blue-500 dark:hover:border-blue-400 transition-all duration-300 flex flex-col overflow-hidden"
+              className="group relative bg-white dark:bg-slate-950 rounded-2xl shadow-md hover:-translate-y-2 hover:shadow-[0_0_50px_10px_rgba(37,99,235,0.5)] dark:hover:shadow-[0_0_60px_15px_rgba(59,130,246,0.7)] border-2 border-slate-200 dark:border-slate-800 hover:border-blue-500 dark:hover:border-blue-400 transition-all duration-300 flex flex-col overflow-hidden flex-shrink-0 w-[85%] sm:w-[380px] md:w-auto snap-center"
             >
               {/* Kapak Görseli */}
               <div className="relative h-56 w-full overflow-hidden bg-slate-100 dark:bg-slate-900">
                 <img 
                   src={project.coverImage} 
-                  alt={project.title}
+                  alt={`${project.title} - Vision Mühendislik`}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                  loading="lazy"
                 />
                 
                 {/* Overlay */}
@@ -66,6 +72,11 @@ export default function Projects() {
               </div>
             </Link>
           ))}
+        </div>
+
+        {/* Mobilde kaydırma ipucu */}
+        <div className="text-center mt-4 md:hidden text-xs text-slate-500 dark:text-slate-400">
+          👉 Projeleri görmek için sağa sola kaydırın
         </div>
 
       </div>
