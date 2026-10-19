@@ -7,6 +7,7 @@ import Contact from './components/Contact';
 import ServiceDetail from './components/ServiceDetail';
 import ScrollToTop from './components/ScrollToTop';
 import Footer from './components/Footer'; // 1. Import et
+import Projects from './components/Projects'; 
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -31,6 +32,7 @@ export default function App() {
             <>
               <Hero />
               <Services />
+              <Projects/>
               <Contact />
             </>
           } />
