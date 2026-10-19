@@ -1,53 +1,5 @@
 import React, { useState } from 'react';
-
-// Örnek Proje Yapısı (Yarın gerçek foto & videolar geldiğinde sadece burayı güncelleyeceğiz)
-const projectsData = [
-  {
-    id: 1,
-    title: "1.2 MW Çatı GES Projesi",
-    subtitle: "Gaziantep OSB",
-    description: "Gaziantep Organize Sanayi Bölgesi'nde yer alan endüstriyel tesis için anahtar teslim çatı Güneş Enerji Santrali kurulumu, panel montajı ve devreye alınması.",
-    coverImage: "/assets/projects/ges-1.webp",
-    gallery: [
-      { type: 'image', url: '/assets/projects/ges-1.webp', caption: 'Saha Üst Bakış' },
-      { type: 'image', url: '/assets/projects/ges-2.webp', caption: 'Panel Dizilimi' },
-      { type: 'image', url: '/assets/projects/ges-3.webp', caption: 'Inverter & Pano Bağlantıları' },
-      { type: 'image', url: '/assets/projects/ges-4.webp', caption: 'Kablaj & Taşıyıcı Hatlar' },
-      { type: 'image', url: '/assets/projects/ges-5.webp', caption: 'Test ve Ölçüm Çalışmaları' },
-      { type: 'video', url: '/assets/projects/ges-video.mp4', poster: '/assets/projects/ges-1.webp', caption: 'Devreye Alma Videosu' }
-    ]
-  },
-  {
-    id: 2,
-    title: "Endüstriyel Tesis Otomasyonu & SCADA",
-    subtitle: "Üretim Hattı Modernizasyonu",
-    description: "Siemens S7-1500 PLC yazılımı, SCADA izleme ekranları, pano imalatı ve saha sensör/aktüatör entegrasyonu.",
-    coverImage: "/assets/projects/otomasyon-1.webp",
-    gallery: [
-      { type: 'image', url: '/assets/projects/otomasyon-1.webp', caption: 'Otomasyon Panosu İç Görünüm' },
-      { type: 'image', url: '/assets/projects/otomasyon-2.webp', caption: 'PLC & Sürücü Modülleri' },
-      { type: 'image', url: '/assets/projects/otomasyon-3.webp', caption: 'SCADA Arayüz Tasarımı' },
-      { type: 'image', url: '/assets/projects/otomasyon-4.webp', caption: 'Saha Sensör Bağlantıları' },
-      { type: 'image', url: '/assets/projects/otomasyon-5.webp', caption: 'Kablo Etiketleme ve Düzenleme' },
-      { type: 'video', url: '/assets/projects/otomasyon-video.mp4', poster: '/assets/projects/otomasyon-1.webp', caption: 'Sistem Test Videosu' }
-    ]
-  },
-  {
-    id: 3,
-    title: "AG-OG Trafo Merkezi & Kablaj",
-    subtitle: "Yüksek Gerilim Tesisatı",
-    description: "33 kV Yüksek Gerilim trafo merkezi montajı, hücre kurulumları, OG kablo başlıkları ve tesis içi AG dağıtım panoları.",
-    coverImage: "/assets/projects/elektrik-1.webp",
-    gallery: [
-      { type: 'image', url: '/assets/projects/elektrik-1.webp', caption: 'Trafo Merkezi Dış Görünüm' },
-      { type: 'image', url: '/assets/projects/elektrik-2.webp', caption: 'OG Hücre Montajı' },
-      { type: 'image', url: '/assets/projects/elektrik-3.webp', caption: 'Ana Dağıtım Panosu' },
-      { type: 'image', url: '/assets/projects/elektrik-4.webp', caption: 'Kablo Kanalı ve Tavalar' },
-      { type: 'image', url: '/assets/projects/elektrik-5.webp', caption: 'Topraklama ve Yalıtım Testleri' },
-      { type: 'video', url: '/assets/projects/elektrik-video.mp4', poster: '/assets/projects/elektrik-1.webp', caption: 'Saha İnceleme Videosu' }
-    ]
-  }
-];
+import { projectsData } from '../data/projectsData'; // Veriyi dışarıdan alıyoruz
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -75,7 +27,7 @@ export default function Projects() {
           </p>
         </div>
 
-        {/* Projects Grid with Services Neon & Hover Effects */}
+        {/* Otomatik Oluşan Proje Kutuları (Grid) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projectsData.map((project) => (
             <div 
@@ -83,7 +35,7 @@ export default function Projects() {
               onClick={() => openProjectModal(project)}
               className="group relative bg-white dark:bg-slate-950 rounded-2xl shadow-md hover:-translate-y-2 hover:shadow-[0_0_50px_10px_rgba(37,99,235,0.5)] dark:hover:shadow-[0_0_60px_15px_rgba(59,130,246,0.7)] border-2 border-slate-200 dark:border-slate-800 hover:border-blue-500 dark:hover:border-blue-400 transition-all duration-300 cursor-pointer flex flex-col overflow-hidden"
             >
-              {/* Image Container with Zoom Effect */}
+              {/* Kapak Resmi (Ana Görsel) */}
               <div className="relative h-52 w-full overflow-hidden bg-slate-100 dark:bg-slate-900">
                 <img 
                   src={project.coverImage} 
@@ -91,7 +43,6 @@ export default function Projects() {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                 />
                 
-                {/* Gradient Shadow Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300"></div>
                 
                 <span className="absolute bottom-3 left-4 text-white text-xs font-semibold px-2.5 py-1 bg-blue-600/90 backdrop-blur-md rounded-md shadow-sm">
@@ -99,7 +50,7 @@ export default function Projects() {
                 </span>
               </div>
 
-              {/* Content Area */}
+              {/* Açıklamalar ve Başlık */}
               <div className="p-6 flex flex-col flex-grow justify-between space-y-4 relative">
                 <div>
                   <span className="text-xs font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wider block mb-1">
@@ -113,7 +64,6 @@ export default function Projects() {
                   </p>
                 </div>
 
-                {/* Footer Link with Slide Animation */}
                 <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-sm font-semibold text-blue-600 dark:text-blue-400">
                   <span className="group-hover:underline">Galeriyi İncele</span>
                   <span className="transform group-hover:translate-x-2 transition-transform duration-300">→</span>
@@ -148,7 +98,7 @@ export default function Projects() {
               </button>
             </div>
 
-            {/* Büyük Medya Ekranı */}
+            {/* Büyük Medya Gösterim Alanı */}
             <div className="relative bg-black flex-1 min-h-[320px] max-h-[480px] flex items-center justify-center overflow-hidden">
               {selectedProject.gallery[activeMediaIndex].type === 'video' ? (
                 <video 
@@ -168,7 +118,7 @@ export default function Projects() {
                 />
               )}
 
-              {/* Sağ-Sol Navigasyon Okları */}
+              {/* Ok Butonları */}
               {activeMediaIndex > 0 && (
                 <button 
                   onClick={() => setActiveMediaIndex(prev => prev - 1)}
@@ -186,7 +136,6 @@ export default function Projects() {
                 </button>
               )}
 
-              {/* Medya Açıklaması */}
               <div className="absolute bottom-0 inset-x-0 bg-slate-950/70 text-white text-xs px-4 py-2 text-center backdrop-blur-sm">
                 {selectedProject.gallery[activeMediaIndex].caption}
               </div>
@@ -218,7 +167,7 @@ export default function Projects() {
               ))}
             </div>
 
-            {/* Modal Açıklama Metni */}
+            {/* Modal Açıklama */}
             <div className="p-5 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 text-sm leading-relaxed border-t border-slate-200 dark:border-slate-800">
               {selectedProject.description}
             </div>
