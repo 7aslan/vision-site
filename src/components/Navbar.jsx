@@ -44,7 +44,8 @@ export default function Navbar({ darkMode, setDarkMode }) {
               <img 
                 src="/logo_nav.png" 
                 alt="Vision Mühendislik" 
-                className="h-32 sm:h-32 w-auto object-contain mix-blend-screen"
+                // Mobilde h-32 sabit kalır, PC ekranlarında (md ve üstü) h-40 yapılarak büyütülür
+                className="h-32 sm:h-32 md:h-40 w-auto object-contain mix-blend-screen transition-all duration-300"
               />
             </a>
           </div>
