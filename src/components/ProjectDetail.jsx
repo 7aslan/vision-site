@@ -119,15 +119,17 @@ export default function ProjectDetail() {
                     : 'border-transparent opacity-60 hover:opacity-100'
                 }`}
               >
-                <img 
-                  src={media.type === 'video' ? (media.poster || media.url) : media.url} 
-                  alt={media.caption} 
-                  className="w-full h-full object-cover"
-                />
-                {media.type === 'video' && (
-                  <span className="absolute inset-0 bg-slate-950/50 flex items-center justify-center text-white text-xs font-bold">
-                    ▶ Video
-                  </span>
+                {media.type === 'video' ? (
+                  <div className="w-full h-full bg-slate-900 dark:bg-slate-950 flex flex-col items-center justify-center text-blue-400">
+                    <span className="text-xl">🎬</span>
+                    <span className="text-[10px] font-semibold tracking-wide uppercase mt-1 text-slate-300">Video</span>
+                  </div>
+                ) : (
+                  <img 
+                    src={media.url} 
+                    alt={media.caption} 
+                    className="w-full h-full object-cover"
+                  />
                 )}
               </button>
             ))}

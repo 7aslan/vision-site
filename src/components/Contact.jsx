@@ -181,7 +181,7 @@ export default function Contact() {
           <div className="p-4 bg-[#f4f5f8] dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 flex justify-between items-center">
             <h4 className="text-sm font-bold text-slate-900 dark:text-white flex items-center space-x-2">
               <span>🗺️</span>
-              <span>AutoSecVision Ofis Konumu</span>
+              <span>Konum:</span>
             </h4>
             <a 
               href="https://www.google.com/maps/place/AutoSecVision+End%C3%BCstriyel+Otomasyon+ve+Enerji+Sistemleri/@37.1512921,37.3014362,17z/data=!4m6!3m5!1s0x1531e39a385358c9:0xebe9888093f2746e!8m2!3d37.1512921!4d37.3014362!16s%2Fg%2F11mzcjf74j" 
