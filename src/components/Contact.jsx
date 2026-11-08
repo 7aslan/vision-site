@@ -35,9 +35,9 @@ export default function Contact() {
 
   return (
     <section id="contact" className="py-20 bg-white dark:bg-slate-900 transition-colors duration-300 border-t border-slate-200 dark:border-slate-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
+        <div className="text-center max-w-3xl mx-auto space-y-4">
           <span className="px-3 py-1 text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/40 rounded-full">
             İletişim & Teklif
           </span>
@@ -61,7 +61,7 @@ export default function Contact() {
               
               {/* Adres - Google Maps Linki */}
               <a 
-                href="https://www.google.com/maps/search/?api=1&query=SAM+MAH.+66056+NOLU+SK.+NO:+31+A+ŞEHİTKAMİL/GAZİANTEP" 
+                href="https://www.google.com/maps/place/AutoSecVision+End%C3%BCstriyel+Otomasyon+ve+Enerji+Sistemleri/@37.1512921,37.3014362,17z/data=!4m6!3m5!1s0x1531e39a385358c9:0xebe9888093f2746e!8m2!3d37.1512921!4d37.3014362!16s%2Fg%2F11mzcjf74j" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-start space-x-4 p-3 -mx-3 rounded-xl hover:bg-slate-200/60 dark:hover:bg-slate-900/60 transition-all group cursor-pointer"
@@ -127,7 +127,7 @@ export default function Contact() {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 
-                {/* Web3Forms Access Key - Buraya kendi anahtarını yapıştıracaksın */}
+                {/* Web3Forms Access Key */}
                 <input type="hidden" name="apikey" value="9ab027ab-4903-465e-a215-62a4868ffa9f" />
 
                 <div className="space-y-2">
@@ -174,6 +174,37 @@ export default function Contact() {
             )}
           </div>
 
+        </div>
+
+        {/* Google Maps Harita Konumu (Şirket İsmiyle Tam Konum) */}
+        <div className="w-full rounded-2xl overflow-hidden shadow-md border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-950">
+          <div className="p-4 bg-[#f4f5f8] dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 flex justify-between items-center">
+            <h4 className="text-sm font-bold text-slate-900 dark:text-white flex items-center space-x-2">
+              <span>🗺️</span>
+              <span>AutoSecVision Ofis Konumu</span>
+            </h4>
+            <a 
+              href="https://www.google.com/maps/place/AutoSecVision+End%C3%BCstriyel+Otomasyon+ve+Enerji+Sistemleri/@37.1512921,37.3014362,17z/data=!4m6!3m5!1s0x1531e39a385358c9:0xebe9888093f2746e!8m2!3d37.1512921!4d37.3014362!16s%2Fg%2F11mzcjf74j" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline"
+            >
+              Büyük Haritada Aç →
+            </a>
+          </div>
+          <div className="w-full h-80 sm:h-96">
+            <iframe
+              title="AutoSecVision Konum"
+              src="https://maps.google.com/maps?q=AutoSecVision+End%C3%BCstriyel+Otomasyon+ve+Enerji+Sistemleri&t=&z=17&ie=UTF8&iwloc=&output=embed"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="w-full h-full filter dark:contrast-125 dark:opacity-90"
+            ></iframe>
+          </div>
         </div>
 
       </div>
