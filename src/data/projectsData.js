@@ -5,7 +5,7 @@ export const projectsData = [
     title: "Maden Sahası Otomasyonu",
     subtitle: "Endüstriyel Altyapı & Saha Uygulamaları",
     description: "Maden sahası için gerçekleştirilen komple otomasyon, PLC/SCADA yazılımı, pano imalatı ve saha kablaj mühendisliği çalışmaları.",
-    coverImage: "https://res.cloudinary.com/dkup33xp3/image/upload/v1792412243/kablaj_ie3l1c.jpg", // Gerçek Cloudinary URL'in gelecek
+    coverImage: "https://res.cloudinary.com/dkup33xp3/image/upload/v1794098564/maden-otomasyon-2_dr0wyp.jpg", // Gerçek Cloudinary URL'in gelecek
     client: "First Mining Madencilik A.Ş.",
     location: "Bingöl",
     date: "2024",
