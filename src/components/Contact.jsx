@@ -49,15 +49,16 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        {/* İki kutuyu aynı boyutta tutmak için items-stretch kullandık */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
           
-          {/* Sol Taraf: Tıklanabilir İletişim Bilgileri */}
-          <div className="space-y-8 bg-[#f4f5f8] dark:bg-slate-950 p-8 rounded-2xl border border-slate-200 dark:border-slate-800">
+          {/* Sol Taraf: İletişim Bilgileri (h-full ile tam boy) */}
+          <div className="h-full flex flex-col justify-between space-y-8 bg-[#f4f5f8] dark:bg-slate-950 p-8 rounded-2xl border border-slate-200 dark:border-slate-800">
             <h3 className="text-xl font-bold text-slate-900 dark:text-white">
               İletişim Bilgilerimiz
             </h3>
             
-            <div className="space-y-6">
+            <div className="space-y-6 flex-grow">
               
               {/* Adres - Google Maps Linki */}
               <a 
@@ -75,7 +76,7 @@ export default function Contact() {
                 </div>
               </a>
 
-              {/* Telefon - Doğrudan Arama (tel:) */}
+              {/* Telefon 1 (GSM) */}
               <a 
                 href="tel:+905511262969" 
                 className="flex items-start space-x-4 p-3 -mx-3 rounded-xl hover:bg-slate-200/60 dark:hover:bg-slate-900/60 transition-all group cursor-pointer"
@@ -89,7 +90,28 @@ export default function Contact() {
                 </div>
               </a>
 
-              {/* E-Posta - Mail Uygulaması (mailto:) */}
+              {/* Yeni Sabit Telefon (Diğer kartlarla birebir aynı hover efektiyle güncellendi) */}
+              <div className="flex items-start space-x-4 p-3 -mx-3 rounded-xl hover:bg-slate-200/60 dark:hover:bg-slate-900/60 transition-all group">
+                <div className="w-12 h-12 rounded-xl bg-blue-600/10 dark:bg-blue-500/20 flex items-center justify-center text-blue-600 dark:text-blue-400 text-xl font-bold shrink-0 group-hover:scale-105 transition-transform">
+                  ☎️
+                </div>
+                <div>
+                  <h4 className="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Sabit Hat / Diğer</h4>
+                  {/* Mobilde tıklayınca arama yapar */}
+                  <a 
+                    href="tel:+905413373815" 
+                    className="md:hidden text-sm text-slate-600 dark:text-slate-400 mt-1 block hover:text-blue-600 underline"
+                  >
+                    +90 (541) 337 3815
+                  </a>
+                  {/* PC'de tıklansa bile sayfada kalır */}
+                  <span className="hidden md:block text-sm text-slate-600 dark:text-slate-400 mt-1 cursor-default">
+                    +90 (541) 337 3815
+                  </span>
+                </div>
+              </div>
+
+              {/* E-Posta */}
               <a 
                 href="mailto:info@visionmuhendislik.com" 
                 className="flex items-start space-x-4 p-3 -mx-3 rounded-xl hover:bg-slate-200/60 dark:hover:bg-slate-900/60 transition-all group cursor-pointer"
@@ -106,10 +128,10 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Sağ Taraf: Form */}
-          <div className="bg-[#f4f5f8] dark:bg-slate-950 p-8 rounded-2xl border border-slate-200 dark:border-slate-800">
+          {/* Sağ Taraf: Form (h-full ile sol kutuyla tam eşit boy) */}
+          <div className="h-full flex flex-col justify-between bg-[#f4f5f8] dark:bg-slate-950 p-8 rounded-2xl border border-slate-200 dark:border-slate-800">
             {submitted ? (
-              <div className="py-12 text-center space-y-4">
+              <div className="py-12 text-center space-y-4 my-auto">
                 <div className="w-16 h-16 bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 rounded-full flex items-center justify-center text-3xl mx-auto">
                   ✓
                 </div>
@@ -125,48 +147,50 @@ export default function Contact() {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6 flex-grow flex flex-col justify-between">
                 
-                {/* Web3Forms Access Key */}
-                <input type="hidden" name="apikey" value="9ab027ab-4903-465e-a215-62a4868ffa9f" />
+                <div className="space-y-6">
+                  {/* Web3Forms Access Key */}
+                  <input type="hidden" name="apikey" value="9ab027ab-4903-465e-a215-62a4868ffa9f" />
 
-                <div className="space-y-2">
-                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">Ad Soyad / Firma</label>
-                  <input
-                    type="text"
-                    name="name"
-                    required
-                    placeholder="Adınız veya Şirket Adı"
-                    className="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-600"
-                  />
-                </div>
+                  <div className="space-y-2">
+                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">Ad Soyad / Firma</label>
+                    <input
+                      type="text"
+                      name="name"
+                      required
+                      placeholder="Adınız veya Şirket Adı"
+                      className="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    />
+                  </div>
 
-                <div className="space-y-2">
-                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">E-Posta Adresiniz</label>
-                  <input
-                    type="email"
-                    name="email"
-                    required
-                    placeholder="ornek@sirket.com"
-                    className="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-600"
-                  />
-                </div>
+                  <div className="space-y-2">
+                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">E-Posta Adresiniz</label>
+                    <input
+                      type="email"
+                      name="email"
+                      required
+                      placeholder="ornek@sirket.com"
+                      className="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    />
+                  </div>
 
-                <div className="space-y-2">
-                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">Mesajınız / Proje Detayı</label>
-                  <textarea
-                    name="message"
-                    rows="4"
-                    required
-                    placeholder="Projenizden kısaca bahsedin..."
-                    className="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-600"
-                  ></textarea>
+                  <div className="space-y-2">
+                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">Mesajınız / Proje Detayı</label>
+                    <textarea
+                      name="message"
+                      rows="4"
+                      required
+                      placeholder="Projenizden kısaca bahsedin..."
+                      className="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    ></textarea>
+                  </div>
                 </div>
 
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-lg shadow-blue-600/25 transition-all text-center disabled:opacity-50"
+                  className="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-lg shadow-blue-600/25 transition-all text-center disabled:opacity-50 mt-6"
                 >
                   {loading ? 'Gönderiliyor...' : 'Teklif İste / Gönder'}
                 </button>
@@ -176,7 +200,7 @@ export default function Contact() {
 
         </div>
 
-        {/* Google Maps Harita Konumu (Şirket İsmiyle Tam Konum) */}
+        {/* Google Maps Harita Konumu */}
         <div className="w-full rounded-2xl overflow-hidden shadow-md border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-950">
           <div className="p-4 bg-[#f4f5f8] dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 flex justify-between items-center">
             <h4 className="text-sm font-bold text-slate-900 dark:text-white flex items-center space-x-2">
