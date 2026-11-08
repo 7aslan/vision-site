@@ -90,24 +90,28 @@ export default function Contact() {
                 </div>
               </a>
 
-              {/* Yeni Sabit Telefon (Diğer kartlarla birebir aynı hover efektiyle güncellendi) */}
-              <div className="flex items-start space-x-4 p-3 -mx-3 rounded-xl hover:bg-slate-200/60 dark:hover:bg-slate-900/60 transition-all group">
+              {/* Sabit Hat - Mobilde Tüm Kutu Tıklanabilir (tel:), Altı Çizili Değil */}
+              <a 
+                href="tel:+905413373815" 
+                className="md:hidden flex items-start space-x-4 p-3 -mx-3 rounded-xl hover:bg-slate-200/60 dark:hover:bg-slate-900/60 transition-all group cursor-pointer"
+              >
                 <div className="w-12 h-12 rounded-xl bg-blue-600/10 dark:bg-blue-500/20 flex items-center justify-center text-blue-600 dark:text-blue-400 text-xl font-bold shrink-0 group-hover:scale-105 transition-transform">
                   ☎️
                 </div>
                 <div>
                   <h4 className="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Sabit Hat / Diğer</h4>
-                  {/* Mobilde tıklayınca arama yapar */}
-                  <a 
-                    href="tel:+905413373815" 
-                    className="md:hidden text-sm text-slate-600 dark:text-slate-400 mt-1 block hover:text-blue-600 underline"
-                  >
-                    +90 (541) 337 3815
-                  </a>
-                  {/* PC'de tıklansa bile sayfada kalır */}
-                  <span className="hidden md:block text-sm text-slate-600 dark:text-slate-400 mt-1 cursor-default">
-                    +90 (541) 337 3815
-                  </span>
+                  <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">+90 (541) 337 3815</p>
+                </div>
+              </a>
+
+              {/* Sabit Hat - PC'de Tıklanamaz / Sayfada Kalır */}
+              <div className="hidden md:flex items-start space-x-4 p-3 -mx-3 rounded-xl hover:bg-slate-200/60 dark:hover:bg-slate-900/60 transition-all group cursor-default">
+                <div className="w-12 h-12 rounded-xl bg-blue-600/10 dark:bg-blue-500/20 flex items-center justify-center text-blue-600 dark:text-blue-400 text-xl font-bold shrink-0 group-hover:scale-105 transition-transform">
+                  ☎️
+                </div>
+                <div>
+                  <h4 className="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Sabit Hat / Diğer</h4>
+                  <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">+90 (541) 337 3815</p>
                 </div>
               </div>
 
